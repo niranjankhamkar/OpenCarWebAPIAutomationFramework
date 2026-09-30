@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Verify user can login with valid credentials","2974","user is able to login to app with valid credentials","chromium","2026-09-28","passed","2026-09-28","","Login Tests","",""
