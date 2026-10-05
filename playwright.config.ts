@@ -18,9 +18,21 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 2 : undefined,  //change
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
+  
+  reporter: process.env.CI  //change
+  ?[    //first part Remote side
+    ['list'],
+    ['html', { outputFolder: "reporters/html-report", open: "never" }],
+    ["allure-playwright", {
+      outputFolder: "allure-results",
+      suiteTitle: true,
+    }],
+    ['reporting-labs', reportingLabs]
+  ]
+  :
+  [    //second part Local side
     ['list'],
     ['html', { outputFolder: "reporters/html-report", open: "never" }],
     ["allure-playwright", {
@@ -32,8 +44,7 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.BASE_URL,
-    // baseURL: 'https://naveenautomationlabs.com/',
-    headless: true,
+    headless: !process.env.CI ? false : true, //Change
     trace: 'on-first-retry',
     screenshot:'on',
     video:'on'
