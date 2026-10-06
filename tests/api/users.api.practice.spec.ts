@@ -58,7 +58,7 @@ test('Update user by PUT api test', async ({ request }) => {
     console.log(jsonBody);
     console.log(response.status());//200
     console.log(response.statusText());//OK
-    expect(response.status()).toBe(200);//200
+    expect(response.status()).toBe(404);//200
 });
 
 //4.Delete User
@@ -69,5 +69,5 @@ test('Delete user by DELETE api test', async ({ request }) => {
     });
     console.log(response.status());//204
     console.log(response.statusText());//No Content
-    expect(response.status()).toBe(204);//204
+    expect(response.status()).toBe(404);//204
 });

@@ -22,7 +22,8 @@ export class BasePage {
         this.searchIcon = page.locator('div#search button');
         this.footerLinks = page.locator('footer a')
         this.currency = page.locator('#form-currency');
-        this.cartButton = page.locator('div#cart button')
+        // this.cartButton = page.locator('div#cart button')
+        this.cartButton = page.locator('#cart > button.btn.btn-inverse')
     }
 
 
