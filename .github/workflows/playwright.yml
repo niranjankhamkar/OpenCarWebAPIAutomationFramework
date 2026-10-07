@@ -4,18 +4,18 @@ on:
   schedule:
     - cron: '30 21 * * 1-5'  # Mon-Fri 8PM IST
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
     inputs:
       environment:
         description: 'Select environment'
         required: true
-        default: 'QA'
+        default: 'qa'
         type: choice
         options:
-          - QA
+          - qa
           - stage
           - dev
 
@@ -67,8 +67,8 @@ jobs:
         env:
           ENV: ${{ github.event.inputs.environment || 'QA' }}
           BASE_URL: ${{ secrets.BASE_URL }}
-          USERNAME: ${{ secrets.APP_USERNAME }}
-          PASSWORD: ${{ secrets.APP_PASSWORD }}
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
