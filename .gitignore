@@ -8,21 +8,21 @@ node_modules/
 /playwright/.auth/
 /reports/
 /reporting-labs/
-/allure -report/
+/allure-report/
 /allure-results/
 reporting-labs.history.json
 
-#env files (confidentials) :
+# env files (credentials)
 config/.env.*
 !config/.env.example
 
-#build
+# build
 dist/
 
 # auth
-src/dta/auth.json
+src/data/auth.json
 
-#OS files
+# OS files
 .DS_Store
 Thumbs.db
 
@@ -30,7 +30,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-#logs
+# logs
 *.log
 npm-debug.log*
 
